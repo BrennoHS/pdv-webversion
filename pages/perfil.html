@@ -1,0 +1,53 @@
+<div class="container">
+    <h3 class="mb-4">Meu Perfil</h3>
+    
+    <div id="login-form">
+        <div class="form-group left-inner-addon">
+            <i class="fa fa-phone-square"></i>
+            <input class="form-control" type="text" placeholder="(XX) XXXXX-XXXX">
+        </div>
+        <div class="form-group left-inner-addon">
+            <i class="fa fa-lock"></i>
+            <input class="form-control" type="password" placeholder="Senha">
+        </div>
+        <button class="btn btn-success btn-block">Entrar</button>
+        <div class="text-center mt-3">
+            <a href="#" id="show-register">Não tem conta? Registre-se</a>
+        </div>
+    </div>
+
+    <div id="register-form" style="display: none;">
+        <div class="form-group left-inner-addon">
+            <i class="fa fa-user"></i>
+            <input class="form-control" type="text" placeholder="Nome Completo">
+        </div>
+        <div class="form-group left-inner-addon">
+            <i class="fa fa-phone-square"></i>
+            <input class="form-control" type="text" placeholder="(XX) XXXXX-XXXX">
+        </div>
+        <div class="form-group left-inner-addon">
+            <i class="fa fa-map-marker-alt"></i>
+            <input class="form-control" type="text" placeholder="Endereço completo">
+        </div>
+        <div class="form-group left-inner-addon">
+            <i class="fa fa-lock"></i>
+            <input class="form-control" type="password" placeholder="Crie uma senha">
+        </div>
+        <button class="btn btn-success btn-block">Registrar</button>
+        <div class="text-center mt-3">
+            <a href="#" id="show-login">Já tem conta? Entrar</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Lógica para alternar entre login e registro
+    $('#show-register').click(function() {
+        $('#login-form').hide();
+        $('#register-form').show();
+    });
+    $('#show-login').click(function() {
+        $('#register-form').hide();
+        $('#login-form').show();
+    });
+</script>
