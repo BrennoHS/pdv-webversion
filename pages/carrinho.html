@@ -1,10 +1,13 @@
 <div class="container">
   <h2>Meu Carrinho</h2>
+  <div id="carrinho-aviso">
+    <h3>Seu carrinho está vazio!</h3>
+  </div>
   <div id="cartItems">
     <!-- Cart items will be dynamically inserted here -->
   </div>
-  <div class="mt-3">
-    <h5>Cupom de Desconto</h5>
+    <div class="mt-3">
+      <h5>Cupom de Desconto</h5>
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Insira o cupom">
       <button class="btn btn-outline-secondary" type="button">Aplicar</button>
@@ -12,9 +15,9 @@
   </div>
   <div class="mt-3">
     <p>Subtotal: <span id="subtotal">R$ 0,00</span></p>
-    <p>Taxa de Entrega: <span id="deliveryFee">R$ 5,00</span></p>
-    <hr>
-    <p><strong>Total: <span id="total">R$ 0,00</span></strong></p>
+      <p>Taxa de Entrega: <span id="deliveryFee">R$ 5,00</span></p>
+      <hr>
+    <p><strong>Total: <span id="total">R$ </span></strong></p>
   </div>
   <button class="btn btn-primary w-100 mt-3">Finalizar Pedido</button>
 </div>

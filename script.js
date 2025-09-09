@@ -73,33 +73,40 @@ $(document).ready(function() {
 
     // funcao para renderizar items no carrinho.html
     window.renderCart = function() {
-        const cartItemsContainer = $('#cartItems');
-        cartItemsContainer.empty(); // Clear existing items
+    const cartItemsContainer = $('#cartItems');
+    cartItemsContainer.empty(); // Clear existing items
 
-        let subtotal = 0;
-        cart.forEach((item, index) => {
-            let itemTotal = item.basePrice + item.extras.reduce((sum, extra) => sum + extra.price, 0);
-            subtotal += itemTotal;
+    // Mostra ou esconde aviso conforme o carrinho
+    if (cart.length === 0) {
+        $('#carrinho-aviso').show();
+    } else {
+        $('#carrinho-aviso').hide();
+    }
 
-            const extrasText = item.extras.length > 0 ? `Adicionais: ${item.extras.map(e => e.name).join(', ')}` : '';
-            const itemHtml = `
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">${item.name}</h5>
-                        <p class="card-text">${extrasText}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="card-text">R$ ${itemTotal.toFixed(2)}</p>
-                            <div>
-                                <button class="btn btn-sm btn-outline-secondary decrease-quantity" data-index="${index}">-</button>
-                                <span>${item.quantity}</span>
-                                <button class="btn btn-sm btn-outline-secondary increase-quantity" data-index="${index}">+</button>
-                            </div>
+    let subtotal = 0;
+    cart.forEach((item, index) => {
+        let itemTotal = item.basePrice + item.extras.reduce((sum, extra) => sum + extra.price, 0);
+        subtotal += itemTotal * item.quantity;
+
+        const extrasText = item.extras.length > 0 ? `Adicionais: ${item.extras.map(e => e.name).join(', ')}` : '';
+        const itemHtml = `
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">${item.name}</h5>
+                    <p class="card-text">${extrasText}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="card-text">R$ ${(itemTotal * item.quantity).toFixed(2)}</p>
+                        <div>
+                            <button class="btn btn-sm btn-outline-secondary decrease-quantity" data-index="${index}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="btn btn-sm btn-outline-secondary increase-quantity" data-index="${index}">+</button>
                         </div>
                     </div>
                 </div>
-            `;
-            cartItemsContainer.append(itemHtml);
-        });
+            </div>
+        `;
+        cartItemsContainer.append(itemHtml);
+    });
 
         // atualiza totais
         const deliveryFee = 5.00;
@@ -107,7 +114,7 @@ $(document).ready(function() {
         $('#subtotal').text(`R$ ${subtotal.toFixed(2)}`);
         $('#deliveryFee').text(`R$ ${deliveryFee.toFixed(2)}`);
         $('#total').text(`R$ ${total.toFixed(2)}`);
-    };
+};
 
     // Eventos para aumentar/diminuir quantidade
     $(document).on('click', '.increase-quantity', function() {
@@ -133,3 +140,5 @@ $(document).ready(function() {
         $('.badge-notify').text(count);
     };
 });
+
+    // funcao para mostrar que carrinho esta vazio

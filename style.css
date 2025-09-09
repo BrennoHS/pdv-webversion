@@ -108,3 +108,7 @@ body {
 .card-body {
     padding: 10px;
 }
+
+#carrinho-aviso {
+    color: #d10015;
+}
