@@ -8,7 +8,7 @@
                     <h5 class="card-title">Hambúrguer Clássico</h5>
                     <p class="card-text">Pão, carne, queijo, alface e tomate.</p>
                     <h6>R$ 25,00</h6>
-                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#productModal">Adicionar</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addToCartModal">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                     <h5 class="card-title">Hambúrguer Clássico</h5>
                     <p class="card-text">Pão, carne, queijo, alface e tomate.</p>
                     <h6>R$ 25,00</h6>
-                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#productModal">Adicionar</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addToCartModal">Adicionar</button>
                 </div>
             </div>
         </div>
@@ -30,37 +30,38 @@
                     <h5 class="card-title">Hambúrguer Clássico</h5>
                     <p class="card-text">Pão, carne, queijo, alface e tomate.</p>
                     <h6>R$ 25,00</h6>
-                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#productModal">Adicionar</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addToCartModal">Adicionar</button>
                 </div>
             </div>
         </div>
         </div>
 </div>
 
-<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Hambúrguer Clássico</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="addToCartModalLabel">Hambúrguer Clássico</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h6>Adicionais:</h6>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="bacon">
-          <label class="form-check-label" for="bacon">Bacon (+R$ 3,00)</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="cheddar">
-          <label class="form-check-label" for="cheddar">Cheddar (+R$ 2,00)</label>
-        </div>
-        <h6 class="mt-3">Observações:</h6>
-        <textarea class="form-control" rows="3" placeholder="Ex: Sem cebola, por favor."></textarea>
+        <form id="addToCartForm">
+          <p>Adicionais:</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="3.00" id="extraBacon">
+            <label class="form-check-label" for="extraBacon">Bacon (+R$ 3,00)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="2.00" id="extraCheddar">
+            <label class="form-check-label" for="extraCheddar">Cheddar (+R$ 2,00)</label>
+          </div>
+          <p>Observações:</p>
+          <textarea class="form-control" id="observations" rows="3"></textarea>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Adicionar ao Carrinho</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" id="addToCartBtn">Adicionar ao Carrinho</button>
       </div>
     </div>
   </div>
