@@ -1,5 +1,6 @@
 body {
-    padding-bottom: 70px; /* Espaço para o menu de navegação inferior */
+    padding-bottom: 70px;
+    /* Espaço para o menu de navegação inferior */
     background-color: #f8f9fa;
 }
 
@@ -96,12 +97,12 @@ body {
     padding-left: 35px !important;
 }
 
-.product-card{
+.product-card {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 5px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
 }
 
@@ -126,4 +127,10 @@ body {
 
 #carrinho-aviso a {
     display: inline-block;
+}
+
+.card {
+    max-height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
 }

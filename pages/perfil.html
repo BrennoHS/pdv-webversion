@@ -25,7 +25,7 @@
                 <label for="password" class="form-label">Senha</label>
                 <input type="password" class="form-control" id="password" placeholder="Sua senha" required>
             </div>
-            
+
             <button type="submit" id="auth-btn" class="btn btn-primary w-100">Entrar / Registrar</button>
         </form>
         <p class="mt-3 text-center" id="auth-message"></p>
@@ -34,11 +34,11 @@
 
 <script>
     // Lógica para alternar entre login e registro
-    $('#show-register').click(function() {
+    $('#show-register').click(function () {
         $('#login-form').hide();
         $('#register-form').show();
     });
-    $('#show-login').click(function() {
+    $('#show-login').click(function () {
         $('#register-form').hide();
         $('#login-form').show();
     });
