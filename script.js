@@ -42,15 +42,23 @@ $(document).ready(function() {
         });
     });
 
+$(document).on('click', '.add-to-cart-btn', function() {
+    const itemName = $(this).data('name');
+    const itemPrice = parseFloat($(this).data('price'));
+    $('#addToCartModalLabel').text(itemName); // Update modal title
+    $('#addToCartModal').data('name', itemName).data('price', itemPrice); // Store for adding to cart
+    $('#addToCartModal').modal('show');
+});
+
     // Adicionar item ao carrinho
     $(document).on('click', '#addToCartBtn', function() {
         const item = {
-            name: 'Hambúrguer Clássico',
-            basePrice: 25.00,
-            extras: [],
-            observations: $('#observations').val() || '',
-            quantity: 1
-        };
+    name: $('#addToCartModal').data('name'),
+    basePrice: $('#addToCartModal').data('price'),
+    extras: [],
+    observations: $('#observations').val() || '',
+    quantity: 1
+};
 
         // condicional que verifica os adicionais selecionados
         if ($('#extraBacon').is(':checked')) {
