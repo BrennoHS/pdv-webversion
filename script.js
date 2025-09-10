@@ -1,27 +1,7 @@
-$(document).ready(function () {
-    // Carrega a página inicial por padrão
-    $('#main-content').load('pages/home.html', function () {
-        const modalElement = document.getElementById('addToCartModal');
-        if (modalElement) {
-            new bootstrap.Modal(modalElement);
-        }
-    });
-
-    $('.nav-item').click(function (e) {
-        e.preventDefault();
-
-        $('.nav-item').removeClass('active');
-        $(this).addClass('active');
-
-        var page = $(this).attr('href').substring(1);
-        $('#main-content').load('pages/' + page + '.html');
-    });
-
     // Função para atualizar o contador do carrinho
     window.updateCartCount = function (count) {
         $('.badge-notify').text(count);
     };
-});
 
 
 
