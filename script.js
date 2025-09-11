@@ -91,13 +91,14 @@ $(document).ready(function () {
         const aviso = $('#carrinho-aviso');
         if (cart.length === 0) {
             aviso.show();
-            // Optionally hide totals and coupon section when empty
-            $('.mt-3').hide(); // Hide coupon and totals sections
-            $('.btn-primary.w-100.mt-3').hide(); // Hide Finalizar Pedido button
+            // Esconde valor total e cuponss quando vazio
+            $('.mt-3').hide(); // Esconde campo de cupom
+            $('.btn-dark.w-100.mt-3').hide(); // Hide Finalizar Pedido button
+            $('h2').hide();
         } else {
             aviso.hide();
             $('.mt-3').show();
-            $('.btn-primary.w-100.mt-3').show();
+            $('.btn-dark.w-100.mt-3').show();
             let subtotal = 0;
             cart.forEach((item, index) => {
                 let itemTotal = item.basePrice + item.extras.reduce((sum, extra) => sum + extra.price, 0);
@@ -227,10 +228,11 @@ $(document).on('submit', '#profile-form', function (e) {
     }
 });
 
-// Handle logout
+// Logout Button
 $(document).on('click', '#logout-btn', function () {
     localStorage.setItem('loggedIn', 'false');
     $('#auth-message').text('Você saiu da conta.').css('color', 'blue');
     $('#profile-form')[0].reset();
     loadProfilePage();
 });
+
